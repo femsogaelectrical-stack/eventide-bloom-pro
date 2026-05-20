@@ -1,0 +1,145 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Noir & Gold palette */
+  --background: oklch(0.08 0.005 60); /* near-black #0d0d0d */
+  --foreground: oklch(0.96 0.01 80);  /* warm cream */
+  --ink: oklch(0.13 0.005 60);        /* #1a1a1a */
+  --gold: oklch(0.76 0.13 80);        /* #c9a84c */
+  --gold-soft: oklch(0.88 0.10 85);   /* #f0d78c */
+
+  --card: oklch(0.11 0.005 60);
+  --card-foreground: oklch(0.96 0.01 80);
+  --popover: oklch(0.11 0.005 60);
+  --popover-foreground: oklch(0.96 0.01 80);
+
+  --primary: oklch(0.76 0.13 80);              /* gold */
+  --primary-foreground: oklch(0.08 0.005 60);  /* black on gold */
+  --secondary: oklch(0.15 0.005 60);
+  --secondary-foreground: oklch(0.96 0.01 80);
+  --muted: oklch(0.14 0.005 60);
+  --muted-foreground: oklch(0.68 0.02 80);
+  --accent: oklch(0.88 0.10 85);
+  --accent-foreground: oklch(0.08 0.005 60);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.22 0.01 80 / 60%);
+  --input: oklch(0.22 0.01 80 / 60%);
+  --ring: oklch(0.76 0.13 80);
+
+  --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+  --gradient-noir: linear-gradient(180deg, oklch(0.08 0.005 60) 0%, oklch(0.05 0 0) 100%);
+  --shadow-gold: 0 20px 60px -20px oklch(0.76 0.13 80 / 35%);
+  --shadow-deep: 0 30px 80px -30px oklch(0 0 0 / 80%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .gold-rule {
+    height: 1px;
+    width: 3rem;
+    background: var(--gold);
+    display: inline-block;
+  }
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.75rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--gold);
+  }
+  .btn-gold:hover {
+    background: transparent;
+    color: var(--gold);
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-ghost-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.75rem;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost-gold:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}
