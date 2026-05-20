@@ -8,10 +8,21 @@ import launchImg from "@/assets/event-launch.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ActiveXperience Events — Top Event Planner in Lagos, Nigeria" },
-      { name: "description", content: "Full-service event planning in Lagos: weddings, corporate galas, birthdays, conferences, theme parties and more. 4.9★ on Google. Call 0808 143 3976." },
-      { property: "og:title", content: "ActiveXperience Events — Lagos Event Planners" },
-      { property: "og:description", content: "Weddings, corporate, birthdays and more. Designed, decorated and delivered." },
+      // Premium Page Specific Meta Tags
+      { title: "ActiveXperience Events | Premium Event Production & Management" },
+      { 
+        name: "description", 
+        content: "Premium event planning based in Agege, Lagos. Flawless timelines, elite creative design, and execution for high-end luxury social celebrations and corporate executions." 
+      },
+      // Open Graph / Social Sharing Tags for Homepage
+      { property: "og:title", content: "ActiveXperience Events | Luxury Social & Corporate Occasions" },
+      { 
+        property: "og:description", 
+        content: "Considered down to the smallest detail, delivered with absolute precision. Meet the team defining luxury events in Lagos." 
+      },
+      { property: "og:site_name", content: "ActiveXperience Events" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     scripts: [{
       type: "application/ld+json",
@@ -19,8 +30,9 @@ export const Route = createFileRoute("/")({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         name: "ActiveXperience Events",
-        image: "/og-image.jpg",
+        image: "/mylogo.png",
         telephone: "+234 808 143 3976",
+        url: "https://your-live-domain.vercel.app", // Switch to his active domain once fully deployed
         address: {
           "@type": "PostalAddress",
           streetAddress: "65 Orile Rd, Orile Agege",
@@ -29,7 +41,7 @@ export const Route = createFileRoute("/")({
           addressRegion: "Lagos",
           addressCountry: "NG",
         },
-        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "18" },
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "204" },
         openingHours: "Mo-Su 00:00-23:59",
       }),
     }],
@@ -81,7 +93,7 @@ function Index() {
           </div>
         </div>
 
-        {/* CHANGED SECTION: This bar at the bottom now loops infinitely */}
+        {/* LOOPING BOTTOM BAR */}
         <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-ink/85 backdrop-blur overflow-hidden py-5">
           <style>{`
             @keyframes marquee {
@@ -187,8 +199,7 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA */}
-      {/* FLOATING GOLD WHATSAPP BUTTON */}
+      {/* FLOATING WHATSAPP BUTTON */}
       <a
         href="https://wa.me/2348081433976?text=Hello%20ActiveXperience%20Events,%20I%20would%20like%20to%20inquire%20about%20your%20event%20planning%20services."
         target="_blank"
@@ -196,7 +207,6 @@ function Index() {
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-gold text-black rounded-full shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 hover:bg-white active:scale-95 group"
         aria-label="Chat on WhatsApp"
       >
-        {/* Custom sharp WhatsApp SVG Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -206,6 +216,8 @@ function Index() {
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.37 5.373 0 12.022 0c3.218.001 6.243 1.253 8.516 3.526 2.273 2.273 3.523 5.299 3.522 8.52-.004 6.655-5.373 12.02-12.022 12.02-2.001-.001-3.97-.496-5.727-1.439L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.023-5.11-2.885-6.974C16.526 1.909 14.058.885 11.43.884 5.995.884 1.573 5.307 1.57 10.74c-.001 1.675.452 3.306 1.311 4.715L1.925 21.84l6.538-1.714zM17.91 14.64c-.326-.163-1.925-.95-2.221-1.058-.297-.11-.513-.163-.73.163-.216.325-.838 1.058-1.027 1.275-.19.217-.379.244-.705.082-.326-.163-1.375-.507-2.62-1.617-.968-.865-1.622-1.933-1.812-2.259-.19-.325-.02-.501.143-.663.146-.146.326-.38.489-.57.163-.19.217-.325.326-.541.11-.217.054-.407-.027-.57-.082-.163-.73-1.76-.999-2.413-.263-.637-.53-.55-.73-.56h-.623c-.216 0-.57.081-.867.407-.297.325-1.138 1.112-1.138 2.71 0 1.599 1.165 3.142 1.328 3.359.163.217 2.292 3.501 5.553 4.909.775.335 1.38.535 1.852.685.779.248 1.488.213 2.048.129.624-.094 1.925-.786 2.196-1.518.271-.732.271-1.356.19-1.488-.081-.13-.297-.212-.623-.375z" />
         </svg>
       </a>
+
+      {/* CTA SECTION */}
       <section className="relative py-32 px-6 lg:px-10 border-t border-border overflow-hidden">
         <div className="absolute inset-0 opacity-25">
           <img src={heroImg} alt="" width={1920} height={1080} loading="lazy" className="h-full w-full object-cover" />
