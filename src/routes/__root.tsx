@@ -74,33 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      // Sitewide SEO Meta Tags
-      { title: "ActiveXperience Events | Luxury Event Planner in Lagos" },
-      { 
-        name: "description", 
-        content: "Flawless execution of luxury social and corporate occasions in Lagos. Custom-tailored experiences defined by precision, refined taste, and an unwavering standard of excellence." 
-      },
-      // Open Graph / Facebook / WhatsApp Preview Tags
+      { title: "ActiveXperience Events — Top Event Planner in Lagos" },
+      { name: "description", content: "Full-service event planning in Lagos: weddings, corporate, birthdays, conferences, theme parties and more. 4.9★ on Google. Call 0808 143 3976." },
+      { property: "og:title", content: "ActiveXperience Events — Lagos Event Planners" },
+      { property: "og:description", content: "Weddings, corporate, birthdays and more. Designed, decorated and delivered." },
       { property: "og:site_name", content: "ActiveXperience Events" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "ActiveXperience Events | Luxury Event Production" },
-      { 
-        property: "og:description", 
-        content: "We do not produce templates. We produce experiences—considered down to the smallest detail and delivered with quiet precision." 
-      },
-      // Twitter Card Meta Tags
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "ActiveXperience Events" },
-      { name: "twitter:description", content: "Bespoke luxury social and corporate occasions in Lagos." },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
-      },
-      {
-        rel: "icon",
-        href: "/mylogo.png", // Points directly to the business logo for the browser tab favicon
       },
     ],
   }),
