@@ -132,7 +132,7 @@ function AboutPage() {
 
               <div className="mt-10 grid sm:grid-cols-3 gap-6 pt-8 border-t border-border">
                 <div>
-                  <p className="font-serif text-3xl text-gold">500+</p>
+                  <p className="font-serif text-3xl text-gold">89+</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.24em] text-foreground/70">Events Delivered</p>
                 </div>
                 <div>

@@ -164,7 +164,7 @@ function Index() {
               {/* THE COUNTERS BLOCK (PERFECTLY ALIGNED ON THE RIGHT SIDE) */}
               <div className="grid grid-cols-3 gap-6 pt-12 border-t border-border/40 max-w-2xl">
                 <div>
-                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">37</p>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">50+</p>
                   <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Events Delivered</p>
                 </div>
                 <div>
@@ -296,7 +296,7 @@ function Index() {
 
       {/* FLOATING WHATSAPP BUTTON */}
       <a
-        href="https://wa.me/2348081433976?text=Hello%20ActiveXperience%20Events,%20I%20would%20like%20to%20inquire%20about%20your%20event%20planning%20services."
+        href="https://wa.me/2349125428086?text=Hello%20ActiveXperience%20Events,%20I%20would%20like%20to%20inquire%20about%20your%20event%20planning%20services."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-gold text-black rounded-full shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 hover:bg-white active:scale-95"
