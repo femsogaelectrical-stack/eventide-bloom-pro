@@ -18,6 +18,10 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content: "event planners in lagos, activexperience, wedding planner lagos, activexperience events, event production agege, stage lighting rental lagos, corporate event managers nigeria, party decorators lagos, premium wedding coordination"
+      },
+      {
+        name: "google-site-verification",
+       content: "HPE4OXQt0PxPM2I3Zc7-Q1hlHryLzqmVq8fr3Mvioz8"
       }
     ],
   }),
