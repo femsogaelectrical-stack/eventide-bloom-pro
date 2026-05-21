@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Phone, Check } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import heroImg from "@/assets/hero-gala.jpg";
 import weddingImg from "@/assets/event-wedding.jpg";
 import corporateImg from "@/assets/event-corporate.jpg";
@@ -23,6 +23,40 @@ function Index() {
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+
+  // Testimonial slider state
+  const [activeReview, setActiveReview] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "“ActiveXperience handled our whole wedding — décor, catering coordination, even guest logistics. We didn’t lift a finger on the day. Absolutely worth every naira.”",
+      author: "TOLU & EMEKA A.",
+      sub: "Traditional & White Wedding · Victoria Island, Lagos"
+    },
+    {
+      quote: "“The staging, line-array audio setup, and moving head fixtures for our corporate launch were flawless. Truly world-class technical production right here in Lagos.”",
+      author: "CHIDI O. (MARKETING DIRECTOR)",
+      sub: "Tech Summit & Brand Activation · Ikoyi"
+    },
+    {
+      quote: "“They transformed our space into an absolute dream for my mom’s 60th birthday gala. The attention to detail in the VVIP seating and stage lighting was exceptional.”",
+      author: "FUNMI O.",
+      sub: "Milestone Birthday Gala · Ikeja GRA"
+    },
+    {
+      quote: "“Flawless execution from setup to strike down. Managing a crowd of over 1,500 guests isn’t easy, but their crowd control planning and vendor coordination were spot on.”",
+      author: "YEMI A. (EVENT DIRECTRESS)",
+      sub: "End-of-Year Concert · Lekki Phase 1"
+    }
+  ];
+
+  // Auto-advance reviews every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveReview((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
 
   const services = [
     { 
@@ -126,11 +160,10 @@ function Index() {
         </div>
       </section>
 
-      {/* WHY US SECTION WITH INTEGRATED COUNTERS (RESTORED ALIGNMENT TO RIGHT COLUMN) */}
+      {/* WHY US SECTION WITH INTEGRATED COUNTERS */}
       <section className="pt-32 pb-20 px-6 lg:px-10 bg-black border-b border-border/40">
         <div className="mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-12 gap-16 items-start">
-            {/* LEFT COLUMN: HEADLINE */}
             <div className="lg:col-span-4">
               <p className="text-xs uppercase tracking-[0.25em] text-gold font-medium">— WHY ACTIVEXPERIENCE</p>
               <h2 className="mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
@@ -138,7 +171,6 @@ function Index() {
               </h2>
             </div>
             
-            {/* RIGHT COLUMN: MAIN DETAILS & INTEGRATED COUNTERS */}
             <div className="lg:col-span-8 space-y-16">
               <div className="space-y-10">
                 <p className="text-lg sm:text-xl text-foreground/80 font-light leading-relaxed max-w-2xl">
@@ -161,14 +193,14 @@ function Index() {
                 </ul>
               </div>
 
-              {/* THE COUNTERS BLOCK (PERFECTLY ALIGNED ON THE RIGHT SIDE) */}
+              {/* COUNTERS WITH RESTORED RIGHT ALIGNMENT */}
               <div className="grid grid-cols-3 gap-6 pt-12 border-t border-border/40 max-w-2xl">
                 <div>
-                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">50+</p>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">37</p>
                   <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Events Delivered</p>
                 </div>
                 <div>
-                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold flex items-center gap-1">
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white flex items-center gap-1">
                     4.9<span className="text-gold text-2xl sm:text-3xl">★</span>
                   </p>
                   <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Google Rating</p>
@@ -179,7 +211,6 @@ function Index() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -255,20 +286,48 @@ function Index() {
         </div>
       </section>
 
-      {/* CLIENT TESTIMONIAL QUOTE */}
+      {/* REVIEWS SLIDER (DYNAMIC TRANSITION MOTION ANIMATION) */}
       <section className="py-28 px-6 lg:px-10 border-b border-border bg-ink/40 text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <div className="max-w-4xl mx-auto flex flex-col items-center min-h-[280px] justify-center">
           <div className="flex gap-1 text-gold text-sm mb-8 tracking-widest justify-center">
             {"★★★★★".split("").map((star, idx) => (
               <span key={idx}>{star}</span>
             ))}
           </div>
-          <blockquote className="font-serif text-2xl sm:text-4xl lg:text-5xl text-white leading-snug font-light italic">
-            “ActiveXperience handled our whole wedding — décor, catering coordination, even guest logistics. We didn’t lift a finger on the day. Absolutely worth every naira.”
-          </blockquote>
-          <div className="mt-10 w-12 h-[1px] bg-gold/50 mx-auto" />
-          <p className="mt-6 text-[0.7rem] uppercase tracking-[0.25em] text-gold font-medium">TOLU & EMEKA A.</p>
-          <p className="mt-1 text-xs text-muted-foreground font-light">Traditional & white wedding · Lagos</p>
+
+          <div className="relative w-full overflow-hidden">
+            {testimonials.map((t, idx) => (
+              <div
+                key={idx}
+                className={`transition-all duration-700 ease-in-out transform ${
+                  idx === activeReview
+                    ? "opacity-100 translate-x-0 relative"
+                    : "opacity-0 absolute top-0 left-0 right-0 -translate-x-8 pointer-events-none"
+                }`}
+              >
+                <blockquote className="font-serif text-2xl sm:text-4xl lg:text-5xl text-white leading-snug font-light italic">
+                  {t.quote}
+                </blockquote>
+                <div className="mt-10 w-12 h-[1px] bg-gold/50 mx-auto" />
+                <p className="mt-6 text-[0.7rem] uppercase tracking-[0.25em] text-gold font-medium">{t.author}</p>
+                <p className="mt-1 text-xs text-muted-foreground font-light">{t.sub}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* SLIDER DOTS NAVIGATION */}
+          <div className="flex gap-2.5 mt-8 justify-center">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveReview(idx)}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  idx === activeReview ? "bg-gold w-4" : "bg-muted-foreground/30"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -296,7 +355,7 @@ function Index() {
 
       {/* FLOATING WHATSAPP BUTTON */}
       <a
-        href="https://wa.me/2349125428086?text=Hello%20ActiveXperience%20Events,%20I%20would%20like%20to%20inquire%20about%20your%20event%20planning%20services."
+        href="https://wa.me/2348081433976?text=Hello%20ActiveXperience%20Events,%20I%20would%20like%20to%20inquire%20about%20your%20event%20planning%20services."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-gold text-black rounded-full shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 hover:bg-white active:scale-95"
