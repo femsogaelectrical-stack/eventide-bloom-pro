@@ -174,7 +174,7 @@ function Index() {
             <div className="lg:col-span-8 space-y-16">
               <div className="space-y-10">
                 <p className="text-lg sm:text-xl text-foreground/80 font-light leading-relaxed max-w-2xl">
-                  You shouldn’t be answering vendor calls on your own wedding day. We take the planning, design, décor, catering coordination and on-the-day management entirely off your hands — and deliver an event your guests will talk about for years.
+                  You shouldn’t be answering vendor calls on your own event day. We take the planning, design, décor, catering coordination and on-the-day management entirely off your hands — and deliver an event your guests will talk about for years.
                 </p>
                 
                 <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
@@ -196,11 +196,11 @@ function Index() {
               {/* COUNTERS WITH RESTORED RIGHT ALIGNMENT */}
               <div className="grid grid-cols-3 gap-6 pt-12 border-t border-border/40 max-w-2xl">
                 <div>
-                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">37</p>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">89+</p>
                   <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Events Delivered</p>
                 </div>
                 <div>
-                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white flex items-center gap-1">
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold flex items-center gap-1">
                     4.9<span className="text-gold text-2xl sm:text-3xl">★</span>
                   </p>
                   <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Google Rating</p>
