@@ -7,12 +7,18 @@ import corporateImg from "@/assets/event-corporate.jpg";
 import launchImg from "@/assets/event-launch.jpg";
 import socialGalasImg from "@/assets/Social-Galas.jpg";
 import liveShowsImg from "@/assets/Live-Shows.jpg";
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "ActiveXperience Events | Premium Event Production & Management" },
-      { name: "description", content: "Premium event planning based in Agege, Lagos. Flawless timelines, elite creative design." },
+      { 
+        name: "description", 
+        content: "Premium event planning based in Agege, Lagos. Flawless timelines, elite creative design, weddings, corporate launches, and concert production." 
+      },
+      {
+        name: "keywords",
+        content: "event planners in lagos, activexperience, wedding planner lagos, activexperience events, event production agege, stage lighting rental lagos, corporate event managers nigeria, party decorators lagos, premium wedding coordination"
+      }
     ],
   }),
   component: Index,
