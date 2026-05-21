@@ -201,7 +201,7 @@ function AboutPage() {
             guests or an intimate dinner for 20 — we bring the same care,
             the same attention, the same fire.&rdquo;
           </p>
-          <p className="mt-8 text-sm uppercase tracking-[0.24em] text-gold">— Peter Emmanuel Ajuh, CEO</p>
+          <p className="mt-8 text-sm uppercase tracking-[0.24em] text-gold">— Peter Emmanuel A, CEO</p>
         </div>
       </section>
 
