@@ -24,7 +24,6 @@ function Index() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
 
-  // Updated array containing the text items exactly from your design cards
   const services = [
     { 
       img: weddingImg, 
@@ -127,8 +126,66 @@ function Index() {
         </div>
       </section>
 
+      {/* WHY US SECTION WITH INTEGRATED COUNTERS (RESTORED ALIGNMENT TO RIGHT COLUMN) */}
+      <section className="pt-32 pb-20 px-6 lg:px-10 bg-black border-b border-border/40">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            {/* LEFT COLUMN: HEADLINE */}
+            <div className="lg:col-span-4">
+              <p className="text-xs uppercase tracking-[0.25em] text-gold font-medium">— WHY ACTIVEXPERIENCE</p>
+              <h2 className="mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+                Lagos events, <br />done <em className="text-gold">right.</em>
+              </h2>
+            </div>
+            
+            {/* RIGHT COLUMN: MAIN DETAILS & INTEGRATED COUNTERS */}
+            <div className="lg:col-span-8 space-y-16">
+              <div className="space-y-10">
+                <p className="text-lg sm:text-xl text-foreground/80 font-light leading-relaxed max-w-2xl">
+                  You shouldn’t be answering vendor calls on your own wedding day. We take the planning, design, décor, catering coordination and on-the-day management entirely off your hands — and deliver an event your guests will talk about for years.
+                </p>
+                
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+                  {[
+                    "End-to-end planning & coordination",
+                    "In-house décor design & rental",
+                    "Full event staffing crew",
+                    "Catering, MC & entertainment booking",
+                    "Transparent, all-inclusive quotes",
+                    "Available 24/7 — we never sleep"
+                  ].map((b) => (
+                    <li key={b} className="flex items-center gap-3 text-sm text-foreground/80 font-light">
+                      <Check size={16} className="text-gold shrink-0" /> {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* THE COUNTERS BLOCK (PERFECTLY ALIGNED ON THE RIGHT SIDE) */}
+              <div className="grid grid-cols-3 gap-6 pt-12 border-t border-border/40 max-w-2xl">
+                <div>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">37</p>
+                  <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Events Delivered</p>
+                </div>
+                <div>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold flex items-center gap-1">
+                    4.9<span className="text-gold text-2xl sm:text-3xl">★</span>
+                  </p>
+                  <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Google Rating</p>
+                </div>
+                <div>
+                  <p className="font-serif text-4xl sm:text-5xl lg:text-6xl text-gold">24/7</p>
+                  <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">Always Available</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* CONTINUOUS MOVING SLIDER */}
-      <section className="py-24 border-t border-border bg-ink/20 overflow-hidden">
+      <section className="py-24 border-b border-border bg-ink/20 overflow-hidden">
         <div className="px-6 lg:px-10 mb-12 max-w-7xl mx-auto flex justify-between items-end">
           <div>
             <p className="eyebrow">— What We Plan</p>
@@ -182,7 +239,6 @@ function Index() {
                       />
                       <div className="absolute top-5 left-5 text-xs font-serif tracking-[0.3em] text-gold/60">{s.num}</div>
                       
-                      {/* Text Gradient Overlay Containing Headers, Subtags, and Descriptions */}
                       <div className="absolute inset-x-0 bottom-0 p-6 pt-20 bg-gradient-to-t from-black via-black/85 to-transparent flex flex-col justify-end min-h-[50%]">
                         <p className="text-[0.6rem] uppercase tracking-[0.18em] text-gold/80 font-medium">{s.tag}</p>
                         <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-white group-hover/card:text-gold transition-colors duration-300">{s.title}</h3>
@@ -199,20 +255,41 @@ function Index() {
         </div>
       </section>
 
-      {/* WHY US SECTION */}
-      <section className="py-32 px-6 lg:px-10 border-t border-border">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-4">
-            <p className="eyebrow">— Why ActiveXperience</p>
-            <h2 className="mt-6 font-serif text-4xl lg:text-5xl">Lagos events, done <em className="text-gold">right.</em></h2>
+      {/* CLIENT TESTIMONIAL QUOTE */}
+      <section className="py-28 px-6 lg:px-10 border-b border-border bg-ink/40 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <div className="flex gap-1 text-gold text-sm mb-8 tracking-widest justify-center">
+            {"★★★★★".split("").map((star, idx) => (
+              <span key={idx}>{star}</span>
+            ))}
           </div>
-          <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-foreground/80">
-            <p className="text-lg">We take the planning, design, décor, catering coordination and on-the-day management entirely off your hands.</p>
-            <ul className="grid sm:grid-cols-2 gap-4">
-              {["End-to-end coordination", "In-house décor design", "Full event staffing", "Catering & MC booking"].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-sm"><Check size={16} className="text-gold mt-1" /> {b}</li>
-              ))}
-            </ul>
+          <blockquote className="font-serif text-2xl sm:text-4xl lg:text-5xl text-white leading-snug font-light italic">
+            “ActiveXperience handled our whole wedding — décor, catering coordination, even guest logistics. We didn’t lift a finger on the day. Absolutely worth every naira.”
+          </blockquote>
+          <div className="mt-10 w-12 h-[1px] bg-gold/50 mx-auto" />
+          <p className="mt-6 text-[0.7rem] uppercase tracking-[0.25em] text-gold font-medium">TOLU & EMEKA A.</p>
+          <p className="mt-1 text-xs text-muted-foreground font-light">Traditional & white wedding · Lagos</p>
+        </div>
+      </section>
+
+      {/* BOTTOM CONTEXT CALL-TO-ACTION (CTA) SECTION */}
+      <section className="relative py-32 px-6 lg:px-10 text-center overflow-hidden bg-black flex items-center justify-center">
+        <div className="absolute inset-0 bg-cover bg-center opacity-10 bg-no-repeat pointer-events-none" style={{ backgroundImage: `url(${heroImg})` }} />
+        <div className="relative max-w-3xl mx-auto">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-gold font-semibold">— READY WHEN YOU ARE</p>
+          <h2 className="mt-6 font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+            Let’s plan your next <br /><em className="text-gold font-serif italic font-normal">unforgettable</em> event.
+          </h2>
+          <p className="mt-6 text-sm text-muted-foreground/90 max-w-xl mx-auto leading-relaxed font-light">
+            Tell us what you’re celebrating. We’ll send a tailored proposal and quote within 24 hours — completely free.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="btn-gold px-8 py-4 text-xs tracking-widest uppercase">
+              Request a Free Quote <ArrowUpRight size={14} className="ml-1" />
+            </Link>
+            <a href="tel:+2348081433976" className="btn-ghost-gold border border-gold/40 px-8 py-4 text-xs tracking-widest uppercase flex items-center gap-2 text-gold">
+              <Phone size={13} /> Call Now
+            </a>
           </div>
         </div>
       </section>
