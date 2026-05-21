@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Star, Phone, Check } from "lucide-react";
+import { ArrowUpRight, Phone, Check } from "lucide-react";
 import { useRef, useState } from "react";
 import heroImg from "@/assets/hero-gala.jpg";
 import weddingImg from "@/assets/event-wedding.jpg";
@@ -11,8 +11,8 @@ import liveShowsImg from "@/assets/Live-Shows.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ActiveXperience Events | Premium Event Production" },
-      { name: "description", content: "Lagos’ premier event planners for weddings, corporate galas, and live concerts." },
+      { title: "ActiveXperience Events | Premium Event Production & Management" },
+      { name: "description", content: "Premium event planning based in Agege, Lagos. Flawless timelines, elite creative design." },
     ],
   }),
   component: Index,
@@ -24,12 +24,48 @@ function Index() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
 
+  // Updated array containing the text items exactly from your design cards
   const services = [
-    { img: weddingImg, num: "01", title: "Weddings", tag: "Traditional · White", to: "/services" },
-    { img: corporateImg, num: "02", title: "Corporate & Conferences", tag: "Galas · Summits", to: "/services" },
-    { img: launchImg, num: "03", title: "Birthdays & Themes", tag: "Kids · Milestones", to: "/services" },
-    { img: socialGalasImg, num: "04", title: "Social Galas", tag: "Anniversaries · Jubilees", to: "/galas" },
-    { img: liveShowsImg, num: "05", title: "Concerts & Festivals", tag: "Live Shows · Activations", to: "/concerts" },
+    { 
+      img: weddingImg, 
+      num: "01", 
+      title: "Weddings", 
+      tag: "TRADITIONAL · WHITE · ENGAGEMENTS", 
+      desc: "From intimate ceremonies to grand Nigerian weddings — décor, planning, catering and coordination, all under one roof.",
+      to: "/services" 
+    },
+    { 
+      img: corporateImg, 
+      num: "02", 
+      title: "Corporate & Conferences", 
+      tag: "GALAS · SUMMITS · LAUNCHES", 
+      desc: "Boardroom dinners, AGMs, conferences and brand activations produced end-to-end with professional staging and AV.",
+      to: "/services" 
+    },
+    { 
+      img: launchImg, 
+      num: "03", 
+      title: "Birthdays & Theme Parties", 
+      tag: "KIDS · ADULTS · MILESTONES", 
+      desc: "Themed setups, balloon décor, kids' parties, baby showers and milestone birthdays designed to wow.",
+      to: "/services" 
+    },
+    { 
+      img: socialGalasImg, 
+      num: "04", 
+      title: "Social Galas", 
+      tag: "ANNIVERSARIES · JUBILEES", 
+      desc: "High-end corporate galas, elegant black-tie banquets, milestone milestones, and premium social celebrations.",
+      to: "/galas" 
+    },
+    { 
+      img: liveShowsImg, 
+      num: "05", 
+      title: "Concerts & Festivals", 
+      tag: "LIVE SHOWS · ACTIVATIONS", 
+      desc: "Complete staging setups, pro audio reinforcement, moving head trusses, and seamless talent production.",
+      to: "/concerts" 
+    },
   ];
 
   const tripleServices = [...services, ...services, ...services];
@@ -91,7 +127,7 @@ function Index() {
         </div>
       </section>
 
-      {/* NON-STOP MOVING & DRAGGABLE SIGNATURE EVENTS */}
+      {/* CONTINUOUS MOVING SLIDER */}
       <section className="py-24 border-t border-border bg-ink/20 overflow-hidden">
         <div className="px-6 lg:px-10 mb-12 max-w-7xl mx-auto flex justify-between items-end">
           <div>
@@ -114,10 +150,10 @@ function Index() {
           <style>{`
             @keyframes linearLoop {
               0% { transform: translate3d(0, 0, 0); }
-              100% { transform: translate3d(calc(-350px * 5 - 1.5rem * 5), 0, 0); }
+              100% { transform: translate3d(calc(-420px * 5 - 1.5rem * 5), 0, 0); }
             }
             .animate-infinite-glide {
-              animation: linearLoop 35s linear infinite;
+              animation: linearLoop 40s linear infinite;
             }
           `}</style>
 
@@ -127,7 +163,7 @@ function Index() {
           >
             <div className="flex gap-6 animate-infinite-glide">
               {tripleServices.map((s, idx) => (
-                <div key={idx} className="w-[280px] sm:w-[350px] md:w-[400px] shrink-0">
+                <div key={idx} className="w-[300px] sm:w-[380px] md:w-[420px] shrink-0">
                   <Link 
                     to={s.to} 
                     className="block group/card"
@@ -144,10 +180,15 @@ function Index() {
                         className="h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-110" 
                         draggable="false"
                       />
-                      <div className="absolute top-5 left-5 text-xs tracking-[0.3em] text-gold">{s.num}</div>
-                      <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-background via-background/80 to-transparent">
-                        <p className="text-[0.6rem] uppercase tracking-widest text-muted-foreground">{s.tag}</p>
-                        <h3 className="mt-2 font-serif text-2xl group-hover/card:text-gold transition-colors">{s.title}</h3>
+                      <div className="absolute top-5 left-5 text-xs font-serif tracking-[0.3em] text-gold/60">{s.num}</div>
+                      
+                      {/* Text Gradient Overlay Containing Headers, Subtags, and Descriptions */}
+                      <div className="absolute inset-x-0 bottom-0 p-6 pt-20 bg-gradient-to-t from-black via-black/85 to-transparent flex flex-col justify-end min-h-[50%]">
+                        <p className="text-[0.6rem] uppercase tracking-[0.18em] text-gold/80 font-medium">{s.tag}</p>
+                        <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-white group-hover/card:text-gold transition-colors duration-300">{s.title}</h3>
+                        <p className="mt-3 text-xs sm:text-sm text-muted-foreground/90 leading-relaxed font-light line-clamp-3">
+                          {s.desc}
+                        </p>
                       </div>
                     </article>
                   </Link>
